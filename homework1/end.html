@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结算页面</title>
+    <style>
+        /* 设置全局样式 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b2f; /* 深蓝色背景 */
+            color: #e0e5ec; /* 浅灰白色字体 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 标题样式 */
+        h1 {
+            font-size: 2em;
+            color: #5c7cfa; /* 浅蓝色标题字体 */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5c7cfa;
+            padding-bottom: 10px;
+        }
+
+        /* 结果显示区域 */
+        #result {
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #407edb; /* 深蓝色背景 */
+            border-radius: 8px;
+            width: 60%;
+            text-align: center;
+        }
+        #winnner
+        {
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #407edb; /* 深蓝色背景 */
+            border-radius: 8px;
+            width: 60%;
+            text-align: center;
+        }
+
+        /* 按钮样式 */
+        button {
+            background-color: #3d5af1; /* 按钮背景蓝色 */
+            color: #e0e5ec; /* 按钮字体颜色 */
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>游戏结算</h1>
+    <div id="result"></div>
+    <div id="winner"></div>
+    <button onclick="clearStorage()">清空记录并返回</button>
+
+    <script>
+        // 获取 URL 参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const firstname = urlParams.get('firstname'); // 获取玩家1的名字
+        const lastname = urlParams.get('lastname'); // 获取玩家2的名字
+
+        // 从 localStorage 加载胜利次数
+        const xwin = parseInt(localStorage.getItem('xwin')) || 0; 
+        const ywin = parseInt(localStorage.getItem('ywin')) || 0; 
+
+        // 显示胜负情况
+        document.getElementById('result').textContent = 
+            `${firstname} 胜利次数: ${xwin}, ${lastname} 胜利次数: ${ywin}`;
+        // 清空 localStorage 并返回 open.html
+        // 确定最终胜利者
+        let winnerMessage = '';
+        if (xwin > ywin) {
+            winnerMessage = `最终胜利者是：${firstname}`;
+        } else if (ywin > xwin) {
+            winnerMessage = `最终胜利者是：${lastname}`;
+        } else {
+            winnerMessage = '比赛平局！';
+        }
+
+// 显示最终胜利者信息
+document.getElementById('winner').textContent = winnerMessage;
+        function clearStorage() {
+            localStorage.removeItem('xwin');
+            localStorage.removeItem('ywin');
+            alert("记录已清空！");
+            window.location.href = 'open.html'; // 跳转回 open.html
+        }
+    </script>
+</body>
+</html>
+
+

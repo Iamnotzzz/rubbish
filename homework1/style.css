@@ -1,0 +1,71 @@
+body {
+   font-family: Arial, sans-serif;
+   background-color: #1b1b2f; /* 深蓝色背景 */
+   color: #e0e5ec; /* 浅灰白色字体 */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   margin: 0;
+}
+#square{
+  position:relative;
+  margin: 40px 450px;
+  height: 316px;
+  width: 316px;
+  background-color: #87A2B5;
+}
+#square/* 这里使用了css的嵌套 */
+{
+   div{
+      float: left;
+      position:relative;
+      background-color: white;
+      border: 2px;
+      border-radius: 2px;
+      height: 100px;
+      width: 100px;
+      margin-top: 4px;
+      margin-left:4px;
+   }
+
+}
+#endGameButton
+{
+   background-color: #3d5af1; /* 按钮背景蓝色 */
+   color: #e0e5ec; /* 按钮字体颜色 */
+   font-size: 1em;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+   margin-top: 20px;
+   margin-left:4px;
+}
+.img{
+   position:relative;
+   float:left;
+}
+span
+{
+   color: rgb(130, 202, 243);
+}
+#players {
+   font-size: 18px;
+   color: #968e8e;
+   padding: 10px;
+   background-color: #c4b4b4;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   max-width: 600px;
+}
+#players span.player {
+   font-weight: bold;
+   color: #007BFF;
+}
+
+#players span.wins {
+   color: #28a745;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- 设置字符编码为 UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- 兼容 IE 浏览器 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以适应不同设备 -->
+    <title>输入界面</title> <!-- 页面标题 -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1b1b2f; /* 深蓝色背景 */
+            color: #e0e5ec; /* 浅灰白色字体 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box
+        {
+            background-color: #567895;
+            width: 500px;
+            height: 700px;
+            position: relative; 
+            margin: 50px auto;           
+        }
+        #head
+        {
+            text-align: center;
+            color: aqua;
+            position: absolute;
+            margin: 60px 150px auto;
+            font-size: 40px;
+        }
+        #myForm
+        {
+            text-align: center;
+            color: aqua;
+            position: absolute;
+            font-size: 20px;
+            margin: 200px 150px;
+
+        }
+        #bottonform
+        {
+            position: absolute;
+            margin: 500px 170px;
+            color : #567895;
+            width: 160px; 
+            height: 50px;
+        }
+        p
+        {
+            font-size: 15px;
+            color: rgb(21, 4, 97);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"> 
+        <div>
+            <h1 id="head">网络井字棋</h1> <!-- 页面主标题 -->
+        </div>
+        <div>
+            <form id="myForm"> <!-- 表单，用于输入玩家信息 -->
+                <label>玩家1<input type="text" name="firstname"/></label><br> <!-- 玩家1的输入框 -->
+                <label>玩家2<input type="text" name="lastname"/></label> <!-- 玩家2的输入框 -->
+            </form>
+        </div>
+        <button id="bottonform"><p>点击以开始游戏</p></button> <!-- 按钮，点击后跳转到另一个页面 -->
+    </div>
+</body>
+<script>
+    // 获取页面中的第一个按钮元素
+    let button = document.getElementsByTagName("button")[0];
+    // 为按钮添加点击事件
+    button.onclick = function() {
+        // 获取表单元素
+        let form = document.getElementById("myForm");
+        // 获取输入框中的值
+        let firstname = form.firstname.value; // 获取玩家1的名字
+        let lastname = form.lastname.value; // 获取玩家2的名字
+        // 使用 encodeURI 对 URL 进行编码，拼接参数并打开新页面
+        window.open(encodeURI('main.html' + '?firstname=' + firstname + '&lastname=' + lastname));
+    }
+</script>
+</html>
