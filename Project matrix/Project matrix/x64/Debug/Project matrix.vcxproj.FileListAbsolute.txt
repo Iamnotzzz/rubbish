@@ -1,0 +1,2 @@
+D:\project\Project matrix\x64\Debug\Project matrix.exe.lastcodeanalysissucceeded
+D:\project\Project matrix\Project matrix\x64\Debug\NativeCodeAnalysis.read.1.tlog
