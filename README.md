@@ -46,6 +46,8 @@ pip install torch torchvision matplotlib
 而torch/torchgpu.py则为使用gpu计算的版本<br>
 gpu版本目前疑似无法调用显存，只能通过内存+cuda的模式计算，有待优化<br>
 
+11.9更新：在torchpromax中解决了这一问题，主要解决方式是添加了myset，详情请查阅注释<br>
+
 
 
 #### OXgame
@@ -57,7 +59,7 @@ gpu版本目前疑似无法调用显存，只能通过内存+cuda的模式计算
 
 #### 252's algorithm questions
 
-收录了252老师在SYSU上数据结构与算法写的一些题目和源代码。
-题目详情请见 'question.md' 文件
+收录了252老师在SYSU上数据结构与算法写的一些题目和源代码。<br>
+题目详情请见 'question.md' 文件<br>
 
 ##### P.S.本仓库在11.8凌晨因为本人操作不当数据完全丢失一次，在此告诫大家善用brench，及时存档！！！！！
